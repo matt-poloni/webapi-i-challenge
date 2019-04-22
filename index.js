@@ -6,9 +6,11 @@ const db = require('./data/db');
 const server = express();
 
 server.use(express.json());
+server.use(cors());
 
 server.get('/', (req, res) => res.send("It's working"));
 
+// POST new user
 server.post('/api/users', (req, res) => {
   const newUser = req.body;
   !newUser.name || !newUser.bio
@@ -18,12 +20,14 @@ server.post('/api/users', (req, res) => {
         .catch(err => res.status(500).json({ error: 'There was an error while saving the user to the database.' }))
 })
 
+// GET all users
 server.get('/api/users', (req, res) => {
   db.find()
     .then(users => res.status(200).json(users))
     .catch(err => res.status(500).json({ error: 'The users information could not be retrieved.' }))
 })
 
+// GET specific user
 server.get('/api/users/:id', (req, res) => {
   const userID = req.params.id;
   db.findById(userID)
@@ -35,6 +39,7 @@ server.get('/api/users/:id', (req, res) => {
     .catch(err => res.status(500).json({ error: 'The user information could not be retrieved.' }))
 })
 
+// DELETE specific user
 server.delete('/api/users/:id', (req, res) => {
   const userID = req.params.id;
   const deleted = db.findById(userID);
@@ -47,6 +52,7 @@ server.delete('/api/users/:id', (req, res) => {
   .catch(err => res.status(500).json({ error: 'The user could not be removed.' }))
 })
 
+// PUT (update) specific user
 server.put('/api/users/:id', (req, res) => {
   const newUser = req.body;
   const userID = req.params.id;

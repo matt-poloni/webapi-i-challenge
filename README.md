@@ -140,8 +140,8 @@ Inside `index.js` add the code necessary to implement the following _endpoints_:
 
 To work on the stretch problems you'll need to enable the `cors` middleware. Follow these steps:
 
-- add the `cors` npm module: `yarn add cors` or `npm i cors`.
-- add `server.use(cors())` after `server.use(express.json())`.
+- [x] add the `cors` npm module: `yarn add cors` or `npm i cors`.
+- [x] add `server.use(cors())` after `server.use(express.json())`.
 
 Create a new React application and connect it to your server:
 
