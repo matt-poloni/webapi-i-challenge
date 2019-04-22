@@ -37,12 +37,12 @@ server.get('/api/users/:id', (req, res) => {
 
 server.delete('/api/users/:id', (req, res) => {
   const userID = req.params.id;
+  const deleted = db.findById(userID);
   db.remove(userID)
   .then(user => {
-    console.log(user)
     !user
-    ? res.status(404).json({ error: 'The user with the specified ID does not exist.' })
-    : res.status(200).json(res.body);
+      ? res.status(404).json({ error: 'The user with the specified ID does not exist.' })
+      : res.status(200).json(deleted);
   })
   .catch(err => res.status(500).json({ error: 'The user could not be removed.' }))
 })
@@ -54,10 +54,9 @@ server.put('/api/users/:id', (req, res) => {
     ? res.status(400).json({ errorMessage: 'Please provide name and bio for the user.' })
     : db.update(userID, newUser)
         .then(user => {
-          console.log(user)
           !user
             ? res.status(404).json({ error: 'The user with the specified ID does not exist.' })
-            : res.status(200).json(user);
+            : res.status(200).json(newUser);
         })
         .catch(err => res.status(500).json({ error: 'The user information could not be modified.' }))
 })
