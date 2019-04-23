@@ -12,9 +12,9 @@ Use Node.js and Express to build an API that performs CRUD operations on users.
 
 ### Download Project Files and Install Dependencies
 
-- **Fork** and **Clone** this repository.
-- **CD into the folder** where you cloned the repository.
-- Type `yarn` or `npm install` to download all dependencies listed inside `package.json`.
+- [x] **Fork** and **Clone** this repository.
+- [x] **CD into the folder** where you cloned the repository.
+- [x] Type `yarn` or `npm install` to download all dependencies listed inside `package.json`.
 
 ### Database access
 
@@ -61,7 +61,7 @@ Inside `index.js` add the code necessary to implement the following _endpoints_:
 
 #### Endpoint Specifications
 
-When the client makes a `POST` request to `/api/users`:
+- [x] When the client makes a `POST` request to `/api/users`:
 
 - If the request body is missing the `name` or `bio` property:
 
@@ -80,14 +80,14 @@ When the client makes a `POST` request to `/api/users`:
   - respond with HTTP status code `500` (Server Error).
   - return the following JSON object: `{ error: "There was an error while saving the user to the database" }`.
 
-When the client makes a `GET` request to `/api/users`:
+- [x] When the client makes a `GET` request to `/api/users`:
 
 - If there's an error in retrieving the _users_ from the database:
   - cancel the request.
   - respond with HTTP status code `500`.
   - return the following JSON object: `{ error: "The users information could not be retrieved." }`.
 
-When the client makes a `GET` request to `/api/users/:id`:
+- [x] When the client makes a `GET` request to `/api/users/:id`:
 
 - If the _user_ with the specified `id` is not found:
 
@@ -99,7 +99,7 @@ When the client makes a `GET` request to `/api/users/:id`:
   - respond with HTTP status code `500`.
   - return the following JSON object: `{ error: "The user information could not be retrieved." }`.
 
-When the client makes a `DELETE` request to `/api/users/:id`:
+- [x] When the client makes a `DELETE` request to `/api/users/:id`:
 
 - If the _user_ with the specified `id` is not found:
 
@@ -111,7 +111,7 @@ When the client makes a `DELETE` request to `/api/users/:id`:
   - respond with HTTP status code `500`.
   - return the following JSON object: `{ error: "The user could not be removed" }`.
 
-When the client makes a `PUT` request to `/api/users/:id`:
+- [x] When the client makes a `PUT` request to `/api/users/:id`:
 
 - If the _user_ with the specified `id` is not found:
 
@@ -140,13 +140,13 @@ When the client makes a `PUT` request to `/api/users/:id`:
 
 To work on the stretch problems you'll need to enable the `cors` middleware. Follow these steps:
 
-- add the `cors` npm module: `yarn add cors` or `npm i cors`.
-- add `server.use(cors())` after `server.use(express.json())`.
+- [x] add the `cors` npm module: `yarn add cors` or `npm i cors`.
+- [x] add `server.use(cors())` after `server.use(express.json())`.
 
 Create a new React application and connect it to your server:
 
-- the React application can be anywhere, but, for this project create it inside the folder for the solution.
-- connect to the `/api/users` endpoint in the API and show the list of users.
+- [ ] the React application can be anywhere, but, for this project create it inside the folder for the solution.
+- [x] connect to the `/api/users` endpoint in the API and show the list of users.
 - add a delete button to each displayed user that will remove it from the server.
 - add forms to add and update data.
 - Style the list of users however you see fit.
